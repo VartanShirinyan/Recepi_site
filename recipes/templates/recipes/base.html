@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт рецептов</title>
+    <!-- Подключение CSS (если нужно) -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Сайт рецептов</h1>
+        <nav>
+            <a href="{% url 'recipes:home' %}">Главная</a>
+            <a href="{% url 'recipes:add_recipe' %}">Добавить рецепт</a>
+            <a href="{% url 'recipes:login' %}">Вход</a>
+            <a href="{% url 'recipes:register' %}">Регистрация</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        <!-- Сюда будет вставляться содержимое дочерних шаблонов -->
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2025 Сайт рецептов</p>
+    </footer>
+</body>
+</html>

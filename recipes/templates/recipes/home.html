@@ -1,0 +1,20 @@
+{% extends 'recipes/base.html' %}
+
+{% block title %}Главная - Сайт рецептов{% endblock %}
+
+{% block content %}
+    <h2>Добро пожаловать на сайт рецептов!</h2>
+
+    {% if recipes %}
+        <h3>Случайные рецепты:</h3>
+        {% for recipe in recipes %}
+            <div>
+                <h4>{{ recipe.title }}</h4>
+                <p>{{ recipe.description|truncatewords:20 }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Рецепты не найдены.</p>
+    {% endif %}
+{% endblock %}
+
