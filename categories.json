@@ -1,0 +1,44 @@
+[
+{
+  "model": "recipes.category",
+  "pk": 6,
+  "fields": {
+    "name": "Десерты"
+  }
+},
+{
+  "model": "recipes.category",
+  "pk": 7,
+  "fields": {
+    "name": "Основные блюда"
+  }
+},
+{
+  "model": "recipes.category",
+  "pk": 8,
+  "fields": {
+    "name": "Напитки"
+  }
+},
+{
+  "model": "recipes.category",
+  "pk": 9,
+  "fields": {
+    "name": "Завтраки"
+  }
+},
+{
+  "model": "recipes.category",
+  "pk": 10,
+  "fields": {
+    "name": "Обед"
+  }
+},
+{
+  "model": "recipes.category",
+  "pk": 11,
+  "fields": {
+    "name": "Ужин"
+  }
+}
+]

@@ -1,20 +1,39 @@
-{% extends 'recipes/base.html' %}
+{% extends 'base.html' %}
 
-{% block title %}{{ recipe.title }} - Детали рецепта{% endblock %}
 {% block content %}
-    <h1>{{ recipe.title }}</h1>
-    <p><b>Описание:</b> {{ recipe.description }}</p>
-    <p><b>Ингредиенты:</b> {{ recipe.ingredients }}</p>
-    <p><b>Шаги приготовления:</b> {{ recipe.steps }}</p>
-    <p><b>Время приготовления:</b> {{ recipe.cooking_time }} минут</p>
-    {% if recipe.image %}
-        <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" style="max-width: 300px;">
-    {% endif %}
-    <p><b>Автор:</b> {{ recipe.author }}</p>
-    <p><b>Категории:</b> 
+<h1>{{ recipe.title }}</h1>
+
+{% if recipe.image %}
+    <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" class="recipe-image">
+    <a href="{{ recipe.image.url }}" target="_blank">Открыть в полном размере</a>
+{% endif %}
+
+<div class="recipe-meta">
+    <p><strong>Автор:</strong> {{ recipe.author.username }}</p>
+    <p><strong>Категории:</strong> 
         {% for category in recipe.categories.all %}
             {{ category.name }}{% if not forloop.last %}, {% endif %}
         {% endfor %}
     </p>
-    <a href="{% url 'recipes:home' %}">Вернуться на главную</a>  <!-- Обновленная ссылка -->
+    <p><strong>Ингредиенты:</strong>
+        {% for ingredient in recipe.ingredients.all %}
+            {{ ingredient.name }}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </p>
+</div>
+
+<div class="recipe-content">
+    <h2>Описание</h2>
+    <p>{{ recipe.description }}</p>
+    
+    <h2>Шаги приготовления</h2>
+    <p>{{ recipe.preparation_steps }}</p>
+</div>
+
+{% if user == recipe.author %}
+    <div class="recipe-actions">
+        <a href="{% url 'recipes:edit_recipe' recipe.pk %}" class="btn">Редактировать</a>
+        <a href="{% url 'recipes:delete_recipe' recipe.pk %}" class="btn btn-danger">Удалить</a>
+    </div>
+{% endif %}
 {% endblock %}

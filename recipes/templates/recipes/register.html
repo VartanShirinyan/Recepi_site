@@ -1,4 +1,4 @@
-{% extends "recipes/base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
 <h2>Регистрация</h2>
@@ -7,5 +7,5 @@
     {{ form.as_p }}
     <button type="submit">Зарегистрироваться</button>
 </form>
-<p>Уже есть аккаунт? <a href="{% url 'recipes:login' %}">Войдите</a></p>
+<p>Уже есть аккаунт? <a href="{% url 'recipes:login' %}">Войдите</a>
 {% endblock %}

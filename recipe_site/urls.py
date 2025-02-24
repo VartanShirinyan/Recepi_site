@@ -18,11 +18,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
-from recipes import views  # Импортируем представления из приложения recipes
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('recipes.urls', namespace='recipes')),
-    path('', views.home, name='home'),  # Главная страница
-    path('recipe/<int:recipe_id>/', views.recipe_detail, name='recipe_detail'),
+    path('', include('recipes.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

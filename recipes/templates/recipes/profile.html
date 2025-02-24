@@ -1,6 +1,10 @@
-{% extends 'recipes/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
-<h2>Профиль пользователя</h2>
-<p>Добро пожаловать, {{ user.username }}!</p>
+<h1>Профиль пользователя {{ user_profile.user.username }}</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
 {% endblock %}

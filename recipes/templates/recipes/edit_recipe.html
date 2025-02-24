@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Редактирование рецепта: {{ recipe.title }}</h1>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <!-- Поле "Название" -->
+    <div class="form-group">
+        <label for="{{ form.title.id_for_label }}">Название рецепта:</label>
+        {{ form.title }}
+        {% if form.title.errors %}
+            <div class="error-message">
+                {{ form.title.errors }}
+            </div>
+        {% endif %}
+    </div>
+    
+    <!-- Поле "Описание" -->
+    <div class="form-group">
+        <label for="{{ form.description.id_for_label }}">Описание:</label>
+        {{ form.description }}
+        {% if form.description.errors %}
+            <div class="error-message">
+                {{ form.description.errors }}
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Поле "Ингредиенты" -->
+    <div class="form-group">
+        <label for="{{ form.ingredients.id_for_label }}">Ингредиенты:</label>
+        {{ form.ingredients }}
+        <a href="{% url 'recipes:add_ingredient' %}" class="btn btn-secondary">Добавить ингредиент</a>
+        {% if form.ingredients.errors %}
+            <div class="error-message">
+                {{ form.ingredients.errors }}
+            </div>
+        {% endif %}
+    </div>
+    
+    <!-- Поле "Шаги приготовления" -->
+    <div class="form-group">
+        <label for="{{ form.preparation_steps.id_for_label }}">Шаги приготовления:</label>
+        {{ form.preparation_steps }}
+        {% if form.preparation_steps.errors %}
+            <div class="error-message">
+                {{ form.preparation_steps.errors }}
+            </div>
+        {% endif %}
+        <small class="form-text text-muted">
+            Минимальная длина: 10 символов.
+        </small>
+    </div>
+    
+    <!-- Поле "Время приготовления" -->
+    <div class="form-group">
+        <label for="{{ form.cooking_time.id_for_label }}">Время приготовления (минуты):</label>
+        {{ form.cooking_time }}
+        {% if form.cooking_time.errors %}
+            <div class="error-message">
+                {{ form.cooking_time.errors }}
+            </div>
+        {% endif %}
+        <small class="form-text text-muted">
+            Введите время в минутах (например, 30).
+        </small>
+    </div>
+
+    <!-- Поле "Изображение" -->
+    <div class="form-group">
+        <label for="{{ form.image.id_for_label }}">Изображение:</label>
+        {{ form.image }}
+        {% if form.image.errors %}
+            <div class="error-message">
+                {{ form.image.errors }}
+            </div>
+        {% endif %}
+        <small class="form-text text-muted">
+            Загрузите изображение в формате JPG, PNG или WEBP.
+        </small>
+    </div>
+
+    <!-- Поле "Категории" -->
+    <div class="form-group">
+        <label for="{{ form.categories.id_for_label }}">Категории:</label>
+        {{ form.categories }}
+        <a href="{% url 'recipes:add_category' %}" class="btn btn-secondary">Добавить категорию</a>
+        {% if form.categories.errors %}
+            <div class="error-message">
+                {{ form.categories.errors }}
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Кнопка "Сохранить" -->
+    <div class="form-group">
+        <button type="submit" class="btn">Сохранить</button>
+    </div>
+</form>
+{% endblock %}
