@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'recipes/base.html' %}
 
 {% block content %}
 <h1>{{ recipe.title }}</h1>
@@ -36,4 +36,7 @@
         <a href="{% url 'recipes:delete_recipe' recipe.pk %}" class="btn btn-danger">Удалить</a>
     </div>
 {% endif %}
+<div class="back-to-list">
+    <a href="{% url 'recipes:all_recipes' %}" class="btn btn-secondary">Вернуться к списку рецептов</a>
+</div>
 {% endblock %}

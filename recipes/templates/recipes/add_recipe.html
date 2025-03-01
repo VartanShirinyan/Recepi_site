@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'recipes/base.html' %}
 
 {% block content %}
 <div class="container">
@@ -7,6 +7,34 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         
+        <!-- Поле "Ингредиенты" -->
+        <label for="{{ form.ingredients.id_for_label }}">Ингредиенты:</label>
+        <div class="ingredient-container">
+            <div class="form-group">
+            {{ form.ingredients }}
+                {% if form.ingredients.errors %}
+                    <div class="error-message">
+                        {{ form.ingredients.errors }}
+                    </div>
+                {% endif %}
+                </div>
+            </div>   
+        <a href="{% url 'recipes:add_ingredient' %}" class="btn btn-secondary">Добавить ингредиент</a>
+        
+        <!-- Поле "Категории" -->
+        <label for="{{ form.categories.id_for_label }}">Категории:</label>
+        <div class="category-container">
+            <div class="form-group">
+            {{ form.categories }}
+                {% if form.categories.errors %}
+                    <div class="error-message">
+                        {{ form.categories.errors }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <a href="{% url 'recipes:add_category' %}" class="btn btn-secondary">Добавить категорию</a>
+
         <!-- Поле "Название" -->
         <div class="form-group">
             <label for="{{ form.title.id_for_label }}">Название рецепта:</label>
@@ -18,6 +46,8 @@
             {% endif %}
         </div>
         
+        
+
         <!-- Поле "Описание" -->
         <div class="form-group">
             <label for="{{ form.description.id_for_label }}">Описание:</label>
@@ -29,17 +59,7 @@
             {% endif %}
         </div>
 
-        <!-- Поле "Ингредиенты" -->
-        <div class="form-group">
-            <label for="{{ form.ingredients.id_for_label }}">Ингредиенты:</label>
-            {{ form.ingredients }}
-            <a href="{% url 'recipes:add_ingredient' %}" class="btn btn-secondary">Добавить ингредиент</a>
-            {% if form.ingredients.errors %}
-                <div class="error-message">
-                    {{ form.ingredients.errors }}
-                </div>
-            {% endif %}
-        </div>
+        
         
         <!-- Поле "Шаги приготовления" -->
         <div class="form-group">
@@ -83,17 +103,7 @@
             </small>
         </div>
 
-        <!-- Поле "Категории" -->
-        <div class="form-group">
-            <label for="{{ form.categories.id_for_label }}">Категории:</label>
-            {{ form.categories }}
-            <a href="{% url 'recipes:add_category' %}" class="btn btn-secondary">Добавить категорию</a>
-            {% if form.categories.errors %}
-                <div class="error-message">
-                    {{ form.categories.errors }}
-                </div>
-            {% endif %}
-        </div>
+        
 
         <!-- Кнопка "Сохранить" -->
         <div class="form-group">

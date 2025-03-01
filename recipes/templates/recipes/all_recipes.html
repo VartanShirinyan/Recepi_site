@@ -1,10 +1,9 @@
-{% extends 'base.html' %}
+{% extends 'recipes/base.html' %}
 
 {% block content %}
-<!-- all_recipes.html -->
+
 <h1>Все рецепты</h1>
 
-<!-- Форма поиска и фильтрации -->
 <form method="get">
     {{ form.as_p }}
     <button type="submit">Применить</button>

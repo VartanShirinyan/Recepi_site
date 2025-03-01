@@ -48,8 +48,6 @@ header h1 {
     font-size: 24px;
 }
 
-
-
 /* Стили для навигационного меню */
 .main-nav {
     display: flex;
@@ -268,4 +266,14 @@ textarea {
 
 .recipe-image-container a:hover {
     text-decoration: underline;
+}
+
+.ingredient-container {
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+.category-container {
+    max-height: 100px;
+    overflow-y: auto;
 }

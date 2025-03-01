@@ -1,11 +1,23 @@
-{% extends 'base.html' %}
+{% extends 'recipes/base.html' %}
 
 {% block content %}
 <h1>Редактирование рецепта: {{ recipe.title }}</h1>
 
+    
+
+
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     
+    <!-- Ссылки для навигации -->
+    <div class="navigation-links">
+        <a href="{% url 'recipes:all_recipes' %}" class="btn btn-secondary">← Все рецепты</a>
+    </div> 
+    <div class="navigation-links">
+        <a href="{% url 'recipes:recipe_detail' recipe.pk %}" class="btn btn-secondary">← Назад к рецепту</a>
+    </div>
+    
+
     <!-- Поле "Название" -->
     <div class="form-group">
         <label for="{{ form.title.id_for_label }}">Название рецепта:</label>

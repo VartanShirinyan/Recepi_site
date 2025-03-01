@@ -23,11 +23,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'v0w23h$!sfuh3y=_vky(&zqu0pl(xs--1gh48%@kr()o4!(#+l'
+# SECRET_KEY = os.getenv('SECRET_KEY', 'default-secret-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+# ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'your-production-domain.com']
 
 # Application definition
 
@@ -77,7 +79,7 @@ WSGI_APPLICATION = 'recipe_site.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  # Используйте os.path.join
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
@@ -111,16 +113,16 @@ LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'Europe/Moscow'
 
-USE_I18N = True  # Включение поддержки интернационализации
-USE_L10N = True  # Включение поддержки локализации
-USE_TZ = True    # Использование временных зон
+USE_I18N = True  
+USE_L10N = True  
+USE_TZ = True    
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Директория для сбора статических файлов.
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
@@ -136,7 +138,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-LOGIN_URL = 'recipes:login'  # Укажите имя маршрута для входа
-LOGIN_REDIRECT_URL = 'recipes:home'
-LOGOUT_REDIRECT_URL = 'recipes:home'
+LOGIN_URL = 'recipes:login' 
+LOGIN_REDIRECT_URL = 'recipes:home'  
+LOGOUT_REDIRECT_URL = 'recipes:home' 
 
