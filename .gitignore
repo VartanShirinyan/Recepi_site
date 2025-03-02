@@ -229,3 +229,22 @@ site/
 .ionide/
 .mypy_cache/
 .ruff_cache/
+
+# Игнорировать виртуальное окружение
+venv/
+myenv/
+
+# Игнорировать базу данных SQLite
+*.sqlite3
+
+# Игнорировать собранные статические файлы
+staticfiles/
+
+# Игнорировать медиафайлы
+media/
+
+# Игнорировать файлы IDE
+.idea/
+.vscode/
+__pycache__/
+*.pyc
