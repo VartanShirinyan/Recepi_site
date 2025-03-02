@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'v0w23h$!sfuh3y=_vky(&zqu0pl(xs--1gh48%@kr(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['VartanS.pythonanywhere.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['VartanS.pythonanywhere.com']
 
 
 # Application definition
