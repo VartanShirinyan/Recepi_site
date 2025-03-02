@@ -29,8 +29,6 @@ dist/
 *.py,cover
 
 ### Django ###
-*.log
-
 # База данных SQLite (если используется)
 db.sqlite3
 db.sqlite3-journal
@@ -48,28 +46,6 @@ local_settings.py
 # Логи Django
 *.log
 
-### Python ###
-# Байт-код, кэши и виртуальные окружения
-__pycache__/
-*.py[cod]
-*$py.class
-.python-version
-.venv/
-venv/
-env/
-ENV/
-env.bak/
-venv.bak/
-
-# Установочные пакеты и дистрибуция
-*.egg-info/
-.installed.cfg
-*.egg
-build/
-dist/
-*.so
-*.py,cover
-
 ### Тестирование и покрытие ###
 .coverage
 .coverage.*
@@ -142,109 +118,3 @@ site/
 .ionide/
 .mypy_cache/
 .ruff_cache/
-
-### Django Migrations ###
-# Миграции (если не хотите их игнорировать, удалите этот блок)
-# Обычно миграции включаются в репозиторий, но если вы хотите их игнорировать:
-# */migrations/*
-# !*/migrations/__init__.py
-
-### Статические файлы (если используются) ###
-# Если статические файлы собираются в STATIC_ROOT, они обычно не включаются в репозиторий
-# static/
-
-### Кэши и временные файлы ###
-*.cache
-*.pyc
-
-### Тестирование и покрытие ###
-.coverage
-.coverage.*
-htmlcov/
-.nox/
-.tox/
-.pytest_cache/
-test-results/
-
-### Редакторы и IDE ###
-# JetBrains (PyCharm, Rider)
-.idea/
-*.iml
-*.sln.iml
-
-# Visual Studio
-.vs/
-.vscode/
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
-
-# Другие
-.ropeproject
-.spyproject
-
-### Системы сборки и пакетные менеджеры ###
-# Poetry, PDM, Pipenv
-poetry.lock
-pdm.lock
-Pipfile.lock
-.pdm.toml
-
-# NuGet, .NET
-*.nupkg
-*.snupkg
-**/[Pp]ackages/*
-!**/[Pp]ackages/build/
-
-# Node.js
-node_modules/
-
-### Операционные системы и окружения ###
-.DS_Store
-Thumbs.db
-
-### Логи и артефакты ###
-*.log
-logs/
-[Tt]est[Rr]esult*/
-[Bb]uild[Ll]og.*
-
-### Специфичные для проектов ###
-# Azure, Docker, конфиги
-.env
-*.dockerignore
-Dockerfile
-
-# Документация
-docs/_build/
-site/
-
-# PyInstaller
-*.manifest
-*.spec
-
-# Другие
-.scrapy/
-.ionide/
-.mypy_cache/
-.ruff_cache/
-
-# Игнорировать виртуальное окружение
-venv/
-myenv/
-
-# Игнорировать базу данных SQLite
-*.sqlite3
-
-# Игнорировать собранные статические файлы
-staticfiles/
-
-# Игнорировать медиафайлы
-media/
-
-# Игнорировать файлы IDE
-.idea/
-.vscode/
-__pycache__/
-*.pyc
