@@ -15,7 +15,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,10 +26,10 @@ SECRET_KEY = 'v0w23h$!sfuh3y=_vky(&zqu0pl(xs--1gh48%@kr()o4!(#+l'
 # SECRET_KEY = os.getenv('SECRET_KEY', 'default-secret-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-# ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'your-production-domain.com']
+ALLOWED_HOSTS = ['VartanS.pythonanywhere.com', 'localhost', '127.0.0.1']
+
 
 # Application definition
 
@@ -135,7 +135,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Настройки для медиафайлов
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'recipe_site', 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'recipe_site/media')
 
 
 LOGIN_URL = 'recipes:login' 

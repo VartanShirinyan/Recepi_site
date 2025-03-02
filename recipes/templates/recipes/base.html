@@ -18,14 +18,12 @@
                 {% if user.is_authenticated %}
                     <a href="{% url 'recipes:add_recipe' %}">Добавить рецепт</a>
                     <div class="user-profile">
-                        <a href="{% url 'recipes:profile' %}">
-                            {% if user.userprofile.profile_picture %}
-                                <img src="{{ user.userprofile.profile_picture.url }}" alt="Фото профиля" class="profile-picture">
-                            {% else %}
-                                <img src="{% static 'images/default_profile.png' %}" alt="Фото профиля" class="profile-picture">
-                            {% endif %}
-                            Профиль
-                        </a>
+                        {% if user.userprofile.profile_picture %}
+                            <img src="{{ user.userprofile.profile_picture.url }}" alt="Фото профиля" class="profile-picture">
+                        {% else %}
+                            <img src="{% static 'images/default_profile.png' %}" alt="Фото профиля" class="profile-picture">
+                        {% endif %}
+                        <a href="{% url 'recipes:profile' %}">Профиль</a>
                     </div>
                     <form action="{% url 'recipes:logout' %}" method="post" class="logout-form">
                         {% csrf_token %}

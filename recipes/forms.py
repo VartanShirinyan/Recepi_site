@@ -35,21 +35,6 @@ class RecipeSearchForm(forms.Form):
         empty_label="Все"
     )
 
-    # def clean(self):
-    #     cleaned_data = super().clean()
-    #     preparation_steps = cleaned_data.get('preparation_steps')
-    #     if preparation_steps and len(preparation_steps) < 10:
-    #         self.add_error(
-    #             'preparation_steps',
-    #             'Шаги приготовления должны содержать не менее 10 символов.')
-    #     cooking_time = cleaned_data.get('cooking_time')
-    #     if cooking_time and cooking_time <= 0:
-    #         self.add_error(
-    #             'cooking_time',
-    #             'Время приготовления должно быть больше 0.'
-    #         )
-    #     return cleaned_data
-    
     
 class CategoryForm(forms.ModelForm):
     class Meta:

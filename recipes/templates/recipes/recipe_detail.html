@@ -5,10 +5,11 @@
 
 {% if recipe.image %}
     <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" class="recipe-image">
-    <a href="{{ recipe.image.url }}" target="_blank">Открыть в полном размере</a>
 {% endif %}
+    
 
 <div class="recipe-meta">
+    <a href="{{ recipe.image.url }}" target="_blank">Открыть в полном размере</a>
     <p><strong>Автор:</strong> {{ recipe.author.username }}</p>
     <p><strong>Категории:</strong> 
         {% for category in recipe.categories.all %}
