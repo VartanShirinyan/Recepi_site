@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Сайт рецептов. Лучшие рецепты для вашего стола.">
+    <meta name="keywords" content="рецепты, кулинария, готовка">
     <title>Сайт рецептов</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="{% static 'recipes/images/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'recipes/css/style.css' %}">
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="header-container">
             <h1>Сайт рецептов</h1>
-            <nav class="main-nav">
+            <nav class="main-nav" aria-label="Основное меню">
                 <a href="{% url 'recipes:home' %}">Главная</a>
                 <a href="{% url 'recipes:all_recipes' %}">Все рецепты</a>
                 {% if user.is_authenticated %}
@@ -46,7 +49,7 @@
                 </div>
             {% endfor %}
         {% endif %}
-        
+       
         {% block content %}
         {% endblock %}
     </main>
