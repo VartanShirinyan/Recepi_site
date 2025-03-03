@@ -12,7 +12,7 @@ import sys
 
 path = '/home/Receptvkusa/Recepi_site'
 if path not in sys.path:
-    sys.path.append(path)
+    sys.path.insert(0, path)
     
 os.environ['DJANGO_SETTINGS_MODULE'] = 'recipe_site.settings'
 
