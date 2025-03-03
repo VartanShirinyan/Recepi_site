@@ -19,6 +19,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(template_name='registration/logged_out.html',
         next_page='recipes:home'), name='logout'),
     path('register/', views.register, name='register'),
-    path('profile/', views.profile, name='profile'), 
+    path('profile/', views.profile, name='profile'),
+    path('upload/', views.upload_image, name='upload_image'),
 ]
 
