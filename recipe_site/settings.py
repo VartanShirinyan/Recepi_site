@@ -14,7 +14,7 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
@@ -26,9 +26,9 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'v0w23h$!sfuh3y=_vky(&zqu0pl(xs--1gh48%@kr(
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'False') == 'False'
 
-ALLOWED_HOSTS = ['VartanS.pythonanywhere.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['Receptvkusa.pythonanywhere.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -121,11 +121,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
-
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'recipes/static')] #
-
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 # Default primary key field type
