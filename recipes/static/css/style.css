@@ -1,0 +1,279 @@
+/* Общие стили для всей страницы */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+    background-image: url('/static/images/background.jpg'); /* Фоновое изображение для всей страницы */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Контейнер для содержания страницы */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5); /* Полупрозрачный белый фон для контента */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для шапки сайта */
+header {
+    background-color: rgba(51, 51, 51, 0.9); /* Полупрозрачный темный фон */
+    color: white;
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Стили для навигационного меню */
+.main-nav {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.main-nav a:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+/* Стили для профиля пользователя */
+.user-profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile-picture {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+/* Стили для кнопки "Выйти" */
+.logout-button {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #e5533d;
+}
+
+/* Стили для основного содержания страницы */
+main {
+    padding: 20px 0;
+}
+
+/* Стили для уведомлений */
+.alert {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Стили для подвала сайта */
+footer {
+    background-color: rgba(51, 51, 51, 0.9); /* Полупрозрачный темный фон */
+    /* color: white; */
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 190px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Стили для форм */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый фон */
+    border-radius: 8px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form textarea,
+form select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Стили для карточек рецептов */
+.recipe-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 15px;
+}
+
+.recipe-card {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый фон */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+}
+
+.recipe-card p {
+    margin: 0;
+    color: #555;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+/* Стили для изображений в карточках рецептов */
+.recipe-image,
+.recipe-thumbnail {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Стили для пагинации */
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination a {
+    color: #00ff55;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+}
+
+.pagination a.active {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #f1f1f1;
+}
+
+/* Стили для текстовых полей */
+textarea {
+    min-height: 40px;
+    resize: vertical;
+    overflow: hidden;
+}
+
+/* Стили для изображений рецептов */
+.recipe-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.recipe-image-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.recipe-image-container a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.recipe-image-container a:hover {
+    text-decoration: underline;
+}
+
+.ingredient-container {
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+.category-container {
+    max-height: 100px;
+    overflow-y: auto;
+}

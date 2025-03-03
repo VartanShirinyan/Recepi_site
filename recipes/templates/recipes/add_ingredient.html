@@ -1,0 +1,12 @@
+{% extends 'recipes/base.html' %}
+
+{% block content %}
+<h1>Добавить ингредиент</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+    <a href="{% url 'recipes:add_recipe' %}">Назад к добавлению рецепта</a>
+</form>
+{% endblock %}
