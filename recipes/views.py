@@ -3,10 +3,12 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from .models import Recipe, Category, Ingredient, UserProfile
+from .models import Recipe, UserProfile
 from .forms import RecipeForm, CategoryForm, IngredientForm, UserProfileForm, RecipeSearchForm
 from django.core.paginator import Paginator
-from django.core.exceptions import PermissionDenied
+import logging
+
+logger = logging.getLogger(__name__)
 
 def home(request):
     random_recipes = Recipe.objects.order_by('?')[:5]
@@ -55,8 +57,12 @@ def all_recipes(request):
 
 
 def recipe_detail(request, pk):
-    recipe = get_object_or_404(Recipe, pk=pk)
-    return render(request, 'recipes/recipe_detail.html', {'recipe': recipe})
+    try:
+        recipe = get_object_or_404(Recipe, pk=pk)
+        return render(request, 'recipes/recipe_detail.html', {'recipe': recipe})
+    except Exception as e:
+        logger.error(f"Ошибка в recipe_detail: {e}")
+        raise
 
 
 @login_required

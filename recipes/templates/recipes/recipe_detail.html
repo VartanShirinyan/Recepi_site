@@ -1,17 +1,21 @@
 {% extends 'recipes/base.html' %}
 
 {% block content %}
+
 <h1>{{ recipe.title }}</h1>
 
 {% if recipe.image %}
     <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" class="recipe-image">
+{% else %}
+    <p>Изображение отсутствует.</p>
 {% endif %}
-    
 
 <div class="recipe-meta">
-    <a href="{{ recipe.image.url }}" target="_blank">Открыть в полном размере</a>
+    {% if recipe.image %}  <!-- Проверка на наличие изображения -->
+        <a href="{{ recipe.image.url }}" target="_blank">Открыть в полном размере</a>
+    {% endif %}
     <p><strong>Автор:</strong> {{ recipe.author.username }}</p>
-    <p><strong>Категории:</strong> 
+    <p><strong>Категории:</strong>
         {% for category in recipe.categories.all %}
             {{ category.name }}{% if not forloop.last %}, {% endif %}
         {% endfor %}
@@ -26,7 +30,7 @@
 <div class="recipe-content">
     <h2>Описание</h2>
     <p>{{ recipe.description }}</p>
-    
+
     <h2>Шаги приготовления</h2>
     <p>{{ recipe.preparation_steps }}</p>
 </div>
@@ -37,7 +41,9 @@
         <a href="{% url 'recipes:delete_recipe' recipe.pk %}" class="btn btn-danger">Удалить</a>
     </div>
 {% endif %}
+
 <div class="back-to-list">
     <a href="{% url 'recipes:all_recipes' %}" class="btn btn-secondary">Вернуться к списку рецептов</a>
 </div>
+
 {% endblock %}
