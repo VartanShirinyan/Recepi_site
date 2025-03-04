@@ -6,9 +6,7 @@ from django.contrib import messages
 from .models import Recipe, UserProfile
 from .forms import RecipeForm, CategoryForm, IngredientForm, UserProfileForm, RecipeSearchForm
 from django.core.paginator import Paginator
-import logging
 
-logger = logging.getLogger(__name__)
 
 def home(request):
     random_recipes = Recipe.objects.order_by('?')[:5]
@@ -57,12 +55,8 @@ def all_recipes(request):
 
 
 def recipe_detail(request, pk):
-    try:
-        recipe = get_object_or_404(Recipe, pk=pk)
-        return render(request, 'recipes/recipe_detail.html', {'recipe': recipe})
-    except Exception as e:
-        logger.error(f"Ошибка в recipe_detail: {e}")
-        raise
+    recipe = get_object_or_404(Recipe, pk=pk)
+    return render(request, 'recipes/recipe_detail.html', {'recipe': recipe})
 
 
 @login_required

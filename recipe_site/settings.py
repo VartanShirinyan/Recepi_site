@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-import logging.config
+from decouple import config
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -21,6 +21,8 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'oyly9bo%x6ye&08i_7tfi)&%dh2%8gh-es#&qnq^a0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 
+DEBUG = config('DEBUG', default=False, cast=bool)
+
 ALLOWED_HOSTS = ['receptvkusa.pythonanywhere.com', 'localhost', '127.0.0.1']
 
 
@@ -34,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'recipes.apps.RecipesConfig',
+    'imagekit',
 ]
 
 MIDDLEWARE = [

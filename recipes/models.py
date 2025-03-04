@@ -2,6 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from imagekit.models import ProcessedImageField
+from imagekit.processors import ResizeToFill
+
 
 class Category(models.Model):
     name = models.CharField(max_length=100, verbose_name='Название категории')
@@ -25,8 +28,13 @@ class Recipe(models.Model):
     categories = models.ManyToManyField(Category, blank=True, verbose_name='Категории')
     ingredients = models.ManyToManyField(Ingredient, blank=True, verbose_name='Ингредиенты')
     created_at = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Дата создания')
-
-
+    image = ProcessedImageField(
+        upload_to='recipes/',
+        processors=[ResizeToFill(300, 200)],  # Размеры в пикселях
+        format='JPEG',
+        options={'quality': 90},
+    )
+    
     def __str__(self):
         return self.title
 
