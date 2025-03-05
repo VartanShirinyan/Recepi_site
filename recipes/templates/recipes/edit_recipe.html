@@ -3,9 +3,6 @@
 {% block content %}
 <h1>Редактирование рецепта: {{ recipe.title }}</h1>
 
-    
-
-
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     
@@ -17,6 +14,36 @@
         <a href="{% url 'recipes:recipe_detail' recipe.pk %}" class="btn btn-secondary">← Назад к рецепту</a>
     </div>
     
+    <!-- Общие ошибки формы -->
+    {% if form.non_field_errors %}
+        <div class="error-message">
+            {{ form.non_field_errors }}
+        </div>
+    {% endif %}
+
+    <!-- Поле "Категории" -->
+    <div class="form-group">
+        <label for="{{ form.categories.id_for_label }}">Категории:</label>
+        {{ form.categories }}
+        <a href="{% url 'recipes:add_category' %}" class="btn btn-secondary">Добавить категорию</a>
+        {% if form.categories.errors %}
+            <div class="error-message">
+                {{ form.categories.errors }}
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Поле "Ингредиенты" -->
+    <div class="form-group">
+        <label for="{{ form.ingredients.id_for_label }}">Ингредиенты:</label>
+        {{ form.ingredients }}
+        <a href="{% url 'recipes:add_ingredient' %}" class="btn btn-secondary">Добавить ингредиент</a>
+        {% if form.ingredients.errors %}
+            <div class="error-message">
+                {{ form.ingredients.errors }}
+            </div>
+        {% endif %}
+    </div>
 
     <!-- Поле "Название" -->
     <div class="form-group">
@@ -41,18 +68,6 @@
         <small class="form-text text-muted">
             Заполните это поле.
         </small>
-    </div>
-
-    <!-- Поле "Ингредиенты" -->
-    <div class="form-group">
-        <label for="{{ form.ingredients.id_for_label }}">Ингредиенты:</label>
-        {{ form.ingredients }}
-        <a href="{% url 'recipes:add_ingredient' %}" class="btn btn-secondary">Добавить ингредиент</a>
-        {% if form.ingredients.errors %}
-            <div class="error-message">
-                {{ form.ingredients.errors }}
-            </div>
-        {% endif %}
     </div>
     
     <!-- Поле "Шаги приготовления" -->
@@ -97,21 +112,9 @@
         </small>
     </div>
 
-    <!-- Поле "Категории" -->
-    <div class="form-group">
-        <label for="{{ form.categories.id_for_label }}">Категории:</label>
-        {{ form.categories }}
-        <a href="{% url 'recipes:add_category' %}" class="btn btn-secondary">Добавить категорию</a>
-        {% if form.categories.errors %}
-            <div class="error-message">
-                {{ form.categories.errors }}
-            </div>
-        {% endif %}
-    </div>
-
     <!-- Кнопка "Сохранить" -->
     <div class="form-group">
-        <button type="submit" class="btn">Сохранить</button>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
     </div>
 </form>
 {% endblock %}
